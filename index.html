@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#0b0d12" id="themeMeta" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="ÖPPNA" />
+<link rel="manifest" href="./manifest.json" />
+<link rel="apple-touch-icon" href="./icon-192.png" />
+<title>Öppna Bibeln. Öppna hjärtat.</title>
+<style>
+:root{--bg:#0b0d12;--bg2:#111827;--card:#141822;--card2:#10141c;--muted:#9aa4b2;--text:#f6f7fb;--accent:#ffb703;--accent2:#fb8500;--ok:#55d187;--line:#242a36;--shadow:#0006}
+[data-theme="light"]{--bg:#f5f3ed;--bg2:#eee9df;--card:#fffdfa;--card2:#f4efe6;--muted:#6d6b67;--text:#171717;--line:#ddd5c8;--shadow:#5b51451c}
+*{box-sizing:border-box}html{background:var(--bg)}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Inter,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2) 60%,var(--bg));color:var(--text);min-height:100vh;transition:.2s background,.2s color}
+button,textarea{font-family:inherit}.wrap{max-width:760px;margin:auto;padding:18px 16px 110px}.top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:8px 0 16px}.brand{display:flex;align-items:center;gap:10px}
+.brandMark{width:36px;height:36px;border-radius:12px;background:linear-gradient(145deg,var(--accent),var(--accent2));display:grid;place-items:center;color:#fff;font-weight:950;font-size:20px;box-shadow:0 8px 22px var(--shadow)}
+.brandWord{font-weight:950;letter-spacing:.08em;font-size:19px}
+.brandWord em{font-style:normal;color:var(--accent)}.topActions{display:flex;gap:7px;align-items:center}.pill,.iconBtn{background:var(--card2);border:1px solid var(--line);padding:8px 10px;border-radius:999px;color:var(--text);font-size:12px}.iconBtn{cursor:pointer;font-size:17px;line-height:1}.hero{padding:22px 0 18px;border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:transparent;border-radius:0;box-shadow:none}.eyebrow{color:var(--accent);font-weight:850;font-size:12px;text-transform:uppercase;letter-spacing:.12em}.hero h1{font-size:34px;line-height:1.05;margin:8px 0 10px;letter-spacing:-.035em}.hero p{color:var(--muted);line-height:1.5;margin:0}.progress{height:9px;background:var(--card2);border:1px solid var(--line);border-radius:99px;overflow:hidden;margin-top:18px}.bar{height:100%;background:var(--accent);width:0}.row{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}.stat{padding:13px 10px;background:var(--card2);border:1px solid var(--line);border-radius:16px}.stat b{display:block;font-size:20px}.stat span{font-size:11px;color:var(--muted)}
+.quick{display:grid;grid-template-columns:1.2fr 1fr;gap:10px;margin-top:12px}.quick button{border:0;border-radius:9px;padding:13px;font-weight:750;cursor:pointer}.three{background:var(--accent);color:#102522}.audio{background:var(--card2);color:var(--text);border:1px solid var(--line)!important}.section{margin-top:22px}.section h2{font-size:18px;margin:0 0 10px}.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:12px}.verse{font-size:23px;font-weight:850;letter-spacing:-.02em}.theme{color:var(--accent);font-weight:800;margin-top:6px}.prompt{font-size:17px;line-height:1.45;margin-top:12px}.small{color:var(--muted);font-size:13px;line-height:1.45}.micro{display:none}.micro.show{display:block;background:var(--card);color:var(--text);border-color:var(--accent)}.micro .small{color:var(--muted)}.micro h3{margin:4px 0 12px;font-size:24px}.microStep{padding:10px 0;border-top:1px solid #ffffff2b}.microStep:first-of-type{border-top:0}.micro strong{color:var(--accent)}
+.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.mode{border:1px solid var(--line);background:transparent;color:var(--text);padding:12px 8px;border-radius:9px;text-align:center;font-size:13px;cursor:pointer}.mode.active{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}.mode span{display:block;font-size:22px;margin-bottom:4px}.notice{padding:14px 16px;border-radius:16px;background:var(--card2);border:1px dashed var(--line);color:var(--muted);font-size:14px;line-height:1.45}
+textarea{width:100%;min-height:80px;border-radius:15px;border:1px solid var(--line);background:var(--card2);color:var(--text);padding:12px;font:inherit;resize:vertical}.btns{display:flex;gap:10px;margin-top:12px}.btn{flex:1;border:0;border-radius:9px;padding:14px;font-weight:750;font-size:15px;cursor:pointer}.primary{background:var(--accent);color:#102522}.secondary{background:var(--card2);color:var(--text);border:1px solid var(--line)}.done{background:#123522;color:#baf3cf;border:1px solid #24583a}.reflectionCard{border-left:4px solid var(--accent)}.daylist{display:grid;grid-template-columns:repeat(7,1fr);gap:7px}.day{aspect-ratio:1;border-radius:12px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);cursor:pointer}.day.current{outline:2px solid var(--accent);color:var(--text)}.day.complete{background:#143224;border-color:#24583a;color:#baf3cf}.day.reflection{background:var(--card2);color:var(--accent)}.legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;color:var(--muted);font-size:11px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;background:var(--card);border:1px solid var(--line)}.dot.doneDot{background:#24583a}.dot.refDot{background:var(--accent)}.footer{position:fixed;bottom:0;left:0;right:0;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;gap:10px;z-index:10}.footer button{flex:1;background:var(--card);color:var(--text);border:1px solid var(--line);padding:12px;border-radius:14px;font-weight:750}.hideIn3{transition:.2s}.threeMode .hideIn3{display:none}.threeMode .section{margin-top:14px}.threeMode .hero{padding:18px}.threeMode .hero h1{font-size:28px}.threeMode .quick{grid-template-columns:1fr}.threeMode #threeBtn{background:var(--accent2);color:#fff}
+@media (min-width:650px){.modes{grid-template-columns:repeat(6,1fr)}.hero h1{font-size:42px}}
+
+.intro{text-align:center;padding:10px 14px 20px}
+.logoLockup{display:inline-flex;align-items:center;gap:12px;margin-bottom:8px}
+.logoSymbol{display:none}
+.logoText{font-family:Georgia,"Times New Roman",serif;font-size:38px;font-weight:700;letter-spacing:.04em;line-height:1}
+.logoText span{color:var(--accent2)}.logoDot{font-size:1.2em}
+.tagline{font-size:16px;font-weight:750;color:var(--text);margin-top:7px}
+.description{max-width:560px;margin:7px auto 0;color:var(--muted);font-size:14px;line-height:1.5}
+.heroLead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:5px}
+.heroLead .eyebrow{margin:0}
+@media(max-width:480px){.logoText{font-size:27px}.description{font-size:13px}.hero{padding:20px}}
+
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><div></div><div class="topActions"><button class="iconBtn" id="themeBtn" aria-label="Byt tema">☀️</button></div></div>
+  <section class="intro">
+    <div class="logoLockup">
+      <div class="logoText">ÖPPNA<span class="logoDot">.</span></div>
+    </div>
+    <div class="tagline">Öppna Bibeln. Öppna hjärtat. Öppna för mer.</div>
+    <div class="description">En plats för Bibeln i vardagen. Läs kort eller stanna längre.</div>
+  </section>
+  <section class="hero">
+    <div class="eyebrow" id="partLabel">DEL 1 · JESUS</div>
+    <h1 id="dayTitle">Dag 1 — Jesus kallar</h1>
+    <p id="heroText">Läs dagens text. Stanna vid det som berör dig.</p>
+    <div class="progress"><div class="bar" id="progressBar"></div></div>
+    <div class="row" style="grid-template-columns:1fr 1fr"><div class="stat"><b id="doneCount">0</b><span>läsningar</span></div><div class="stat"><b id="momentum">0</b><span>senaste dagar</span></div><b id="percent" style="display:none">0%</b></div>
+    <div class="quick"><button class="three" id="threeBtn">3 minuter</button><button class="audio" id="audioBtn">Lyssna</button></div>
+  </section>
+
+  <section class="section micro" id="microCard"><div class="small">3-MINUTERSLÄGE</div><h3 id="microTitle">Ett enda fokus</h3><div class="microStep"><strong>1 min · Läs</strong><div id="microRead"></div></div><div class="microStep"><strong>1 min · Fråga</strong><div id="microQuestion"></div></div><div class="microStep"><strong>1 min · Svara</strong><div id="microAction"></div></div></section>
+
+  <section class="section hideIn3"><h2>Dagens andakt</h2>
+    <div class="card"><div class="small">3 · LÄS</div><div class="verse" id="reading">Mark 1:14–20</div><div class="theme" id="theme">Jesus kallar</div></div>
+    <div class="card"><div class="small">2 · UPPTÄCK</div><div class="prompt" id="question">Vad innebär ”följ mig” för mig just nu?</div></div>
+    <div class="card"><div class="small">1 · GÖR</div><div class="prompt" id="action">Be: ”Jesus, jag vill följa dig idag.”</div></div>
+  </section>
+
+  <section class="section hideIn3"><h2>Välj ett sätt att läsa</h2>
+    <div class="modes" id="modes"><button class="mode active" data-mode="LÄS"><span>📖</span>Läs</button><button class="mode" data-mode="LYSSNA"><span>🎧</span>Lyssna</button><button class="mode" data-mode="KLADDA"><span>🖊️</span>Kladda</button><button class="mode" data-mode="PRATA"><span>🎙️</span>Prata</button><button class="mode" data-mode="BE"><span>🙏</span>Be</button><button class="mode" data-mode="GÖR"><span>🚶</span>Gör</button></div>
+    <div class="notice" id="modeTip" style="margin-top:10px">Läs bara dagens korta stycke. Högt om det hjälper fokus.</div>
+  </section>
+
+  <section class="section"><h2 id="reflectionHeading">Min reflektion</h2>
+    <div class="card" id="reflectionBox"><div class="small">💡 Vad såg jag?</div><textarea id="saw" placeholder="En mening räcker..."></textarea><div class="small" style="margin-top:12px">👂 Vad tror jag Gud säger?</div><textarea id="heard" placeholder="Kort och enkelt..."></textarea><div class="small" style="margin-top:12px">➡️ Mitt nästa steg</div><textarea id="next" placeholder="En sak idag..."></textarea><div class="btns"><button class="btn secondary" id="saveBtn">Spara</button><button class="btn primary" id="doneBtn">Markera klar</button></div></div>
+  </section>
+
+  <section class="section hideIn3"><h2>Din läsning</h2><div class="small" style="margin:-4px 0 12px">Fortsätt där du är. Nya läsningar kan läggas till efter hand.</div><div class="daylist" id="dayList"></div><div class="legend"><span><i class="dot doneDot"></i>Klar</span><span><i class="dot refDot"></i>Reflektion</span><span><i class="dot"></i>Nästa</span></div></section>
+</div>
+<div class="footer"><button id="prevBtn">← Föregående</button><button id="todayBtn">Nästa steg</button><button id="nextBtn">Nästa →</button></div>
+
+<script>
+const days = [
+[1,'JESUS','Mark 1:14–20','Jesus kallar','Vad innebär ”följ mig” för mig just nu?','Be: ”Jesus, jag vill följa dig idag.”'],
+[2,'JESUS','Mark 2:13–17','Jesus ser människor','Vem ser Jesus som andra lätt missar?','Lägg märke till en människa idag.'],
+[3,'JESUS','Mark 4:35–41','Stormen','Vad är jag rädd för som Jesus redan befinner sig mitt i?','Säg din oro högt till Jesus.'],
+[4,'JESUS','Mark 5:1–20','Mannen ingen annan ville ha nära','Vad berättar detta om Jesu kärlek till trasiga människor?','Be för någon som andra lätt undviker.'],
+[5,'JESUS','Mark 5:21–43','Mitt i avbrottet','Hur reagerar jag när min plan störs?','Ta emot ett avbrott med närvaro idag.'],
+[6,'JESUS','Joh 6:1–13','Lite blir mycket','Vad har jag som känns för litet men som jag kan ge Jesus?','Ge Jesus det lilla du har.'],
+[7,'JESUS','REFLEKTION','Reflektionsdag','Vad har Jesus velat visa mig den här veckan?','Ta en promenad och spela in ett 60-sekunders röstmemo.'],
+[8,'JESUS','Matt 16:13–20','Vem säger du att jag är?','Vem är Jesus för mig – inte bara för andra?','Skriv en mening: ”Jesus, du är…”'],
+[9,'JESUS','Matt 11:28–30','Kom till mig','Vad bär jag som Jesus ber mig lämna hos honom?','Sitt två minuter i stillhet.'],
+[10,'JESUS','Luk 19:1–10','Jesus och Sackeus','Vad gör Jesu närvaro med en människa?','Visa generositet på ett konkret sätt.'],
+[11,'JESUS','Joh 4:7–30','Kvinnan vid brunnen','Var möter Jesus min verkliga törst?','Var helt ärlig med Gud om en längtan.'],
+[12,'JESUS','Joh 8:1–11','Nåd','Vad gör Jesus med skam och sanning?','Ta emot nåd – och ge den vidare.'],
+[13,'JESUS','Joh 10:1–18','Den gode herden','Hur känner jag igen Jesu röst?','Stäng av annat ljud i fem minuter.'],
+[14,'JESUS','Joh 15:9–17','Vänskap med Jesus','Vad betyder det att bli kallad vän?','Tacka Jesus för hans vänskap.'],
+[15,'JESUS','Luk 9:23–25','Min respons','Vad betyder det att följa Jesus för mig?','Skriv: ”Att följa Jesus betyder för mig…”'],
+[16,'HELIGE ANDE','Joh 14:15–27','Hjälparen','Vad lovar Jesus om Andens närvaro?','Be: ”Helige Ande, hjälp mig idag.”'],
+[17,'HELIGE ANDE','Joh 16:5–15','Han leder mig','Var behöver jag ledning?','Be om ledning i en konkret sak.'],
+[18,'HELIGE ANDE','Apg 1:4–8','Kraft att vara vittne','Vad är kraften till för?','Be om frimodighet för en människa.'],
+[19,'HELIGE ANDE','Apg 2:1–21','Pingst','Vad förändras när Anden kommer?','Be högt i två minuter.'],
+[20,'HELIGE ANDE','Apg 4:23–31','Frimodighet','Vad bad de om när de mötte motstånd?','Be om frimodighet, inte bara lättnad.'],
+[21,'HELIGE ANDE','REFLEKTION','Reflektionsdag','Var har jag märkt Helige Ande den här veckan?','Ta en promenad och lyssna.'],
+[22,'HELIGE ANDE','Apg 8:26–40','Lyssna och agera','Vad händer när Filippos lyssnar och går?','Följ en liten god impuls idag.'],
+[23,'HELIGE ANDE','Apg 10:9–23','Gud stör våra planer','Vilka invanda tankar vill Gud utmana?','Var öppen för att Gud gör annorlunda.'],
+[24,'HELIGE ANDE','Apg 13:1–4','Anden talar','Vad skapar utrymme för Andens tilltal?','Ge Gud fem minuter utan agenda.'],
+[25,'HELIGE ANDE','Rom 8:1–17','Ledd av Anden','Vad är skillnaden mellan rädsla och barnaskap?','Säg: ”Jag tillhör dig, Far.”'],
+[26,'HELIGE ANDE','Rom 8:26–27','När jag inte vet hur jag ska be','Vad gör Anden i min svaghet?','Var tyst inför Gud en stund.'],
+[27,'HELIGE ANDE','Gal 5:16–26','Andens frukt','Vilken frukt behöver växa i mig?','Välj en frukt att praktisera idag.'],
+[28,'HELIGE ANDE','1 Kor 12:4–11','Andens gåvor','Hur kan det Gud gett mig tjäna andra?','Använd en gåva för någon annan.'],
+[29,'HELIGE ANDE','Ef 5:15–21','Bli uppfylld','Vad fyller mig just nu?','Byt tio minuters brus mot tillbedjan.'],
+[30,'HELIGE ANDE','Luk 11:9–13','Fyll mig på nytt','Hur uppmuntrar Jesus mig att be?','Be: ”Helige Ande, fyll mig på nytt.”'],
+[31,'LÄRJUNGASKAP','Matt 4:18–22','Följ','Vad lämnar lärjungarna för att följa?','Ta ett konkret följ-steg.'],
+[32,'LÄRJUNGASKAP','Matt 5:1–12','Ett annorlunda liv','Vad kallar Jesus välsignat som världen missar?','Välj en saligprisning att bära idag.'],
+[33,'LÄRJUNGASKAP','Matt 5:13–16','Salt och ljus','Var behöver mitt ljus synas?','Gör något gott utan att söka applåder.'],
+[34,'LÄRJUNGASKAP','Matt 6:5–13','Bön','Vad lär Jesus mig om bön?','Be Herrens bön långsamt.'],
+[35,'LÄRJUNGASKAP','Matt 6:19–34','Sök först','Vad tar oproportionerligt mycket av min uppmärksamhet?','Sök Guds rike först i en sak idag.'],
+[36,'LÄRJUNGASKAP','REFLEKTION','Reflektionsdag','Vad håller Jesus på att forma i mina vanor?','Skriv en vana att fortsätta med.'],
+[37,'LÄRJUNGASKAP','Matt 7:24–29','Bygg på klippan','Vad vet jag redan men behöver göra?','Gör en sak du skjutit upp.'],
+[38,'LÄRJUNGASKAP','Luk 9:57–62','Kostnaden','Vad konkurrerar med min efterföljelse?','Säg ett tydligt ja till Jesus.'],
+[39,'LÄRJUNGASKAP','Luk 10:25–37','Min nästa','Vem är min nästa idag?','Hjälp någon konkret.'],
+[40,'LÄRJUNGASKAP','Luk 10:38–42','Maria och Marta','Vad gör mig upptagen men inte närvarande?','Sitt fem minuter vid Jesu fötter.'],
+[41,'LÄRJUNGASKAP','Joh 13:1–17','Tjäna','Vad visar Jesus om storhet?','Gör en lågmäld tjänst för någon.'],
+[42,'LÄRJUNGASKAP','Joh 13:34–35','Älska','Hur ska människor känna igen Jesu lärjungar?','Visa konkret kärlek.'],
+[43,'LÄRJUNGASKAP','Joh 15:1–8','Förbli','Vad händer när jag försöker bära frukt själv?','Prioritera närvaro före prestation.'],
+[44,'LÄRJUNGASKAP','Jak 1:19–27','Gör ordet','Vad hör jag men gör inte?','Omsätt en sak direkt.'],
+[45,'LÄRJUNGASKAP','Gal 2:19–20','Kristus lever i mig','Vad behöver få mindre plats för att Jesus ska få mer?','Överlåt ett område till Jesus.'],
+[46,'LEDARSKAP','2 Mos 3:1–12','Mose','Vad säger Gud till Moses osäkerhet?','Ta ett steg trots att du inte känner dig redo.'],
+[47,'LEDARSKAP','2 Mos 18:13–24','Du kan inte göra allt själv','Vad behöver delas med andra?','Delegera en sak.'],
+[48,'LEDARSKAP','Jos 1:1–9','Mod','Vad grundas Josuas mod i?','Gör det du vet är rätt trots rädsla.'],
+[49,'LEDARSKAP','1 Sam 16:1–13','Gud ser hjärtat','Vad värderar Gud annorlunda än människor?','Se efter karaktär hos någon idag.'],
+[50,'LEDARSKAP','1 Sam 17:32–50','David','Vilka tidigare segrar kan stärka min tro?','Påminn dig om en gång Gud bar dig.'],
+[51,'LEDARSKAP','REFLEKTION','Reflektionsdag','Vad formar Gud i mig innan han gör något genom mig?','Spela in ett röstmemo till dig själv.'],
+[52,'LEDARSKAP','1 Kung 19:1–18','Elia är slut','Hur möter Gud en utmattad ledare?','Gör något återhämtande utan skuld.'],
+[53,'LEDARSKAP','Neh 1:1–11','Bördan föder vision','Vad gör ont i mig på ett heligt sätt?','Be konkret över din börda.'],
+[54,'LEDARSKAP','Neh 2:11–20','Vision blir handling','När behöver jag gå från bön till plan?','Skriv nästa praktiska steg.'],
+[55,'LEDARSKAP','Mark 10:35–45','Tjänande ledarskap','Hur definierar Jesus storhet?','Tjäna innan du leder.'],
+[56,'LEDARSKAP','Joh 13:1–17','Handduken','Vilken handduk behöver jag plocka upp?','Gör något som är ”under din nivå”.'],
+[57,'LEDARSKAP','2 Tim 2:1–7','Investera i andra','Vem kan jag anförtro något vidare till?','Uppmuntra eller träna en person.'],
+[58,'LEDARSKAP','1 Tim 4:11–16','Ditt liv spelar roll','Vad behöver jag ge akt på hos mig själv?','Välj ett område att vårda.'],
+[59,'LEDARSKAP','2 Kor 4:7–18','Skatten i lerkärlet','Hur kan svaghet bära Guds kraft?','Var ärlig om en svaghet inför Gud.'],
+[60,'LEDARSKAP','Joh 21:15–19','Älskar du mig?','Vad kopplar Jesus samman med kärlek till honom?','Vårda en människa idag.'],
+[61,'KYRKAN','Apg 2:37–47','Den första kyrkan','Vad präglade deras vardag tillsammans?','Skapa gemenskap runt ett bord.'],
+[62,'KYRKAN','Apg 4:32–35','Ett hjärta','Hur ser generositet ut i en familj?','Dela något du har.'],
+[63,'KYRKAN','Apg 6:1–7','När kyrkan växer','Hur löser de problem utan att tappa uppdraget?','Identifiera rätt person för rätt ansvar.'],
+[64,'KYRKAN','Apg 11:19–26','Antiochia','Vad händer när vanliga människor delar Jesus?','Prata naturligt om din tro.'],
+[65,'KYRKAN','Apg 13:1–4','En kyrka som sänder','Vad händer när en kyrka lyssnar tillsammans?','Be för någon som är kallad ut.'],
+[66,'KYRKAN','REFLEKTION','Reflektionsdag','Hur vill Jesus att jag bygger gemenskap?','Skriv namnet på tre människor att investera i.'],
+[67,'KYRKAN','Rom 12:3–13','Vi behöver varandra','Vad bidrar jag med till kroppen?','Använd din gåva med glädje.'],
+[68,'KYRKAN','1 Kor 12:12–27','En kropp','Vem underskattar jag i kroppen?','Bekräfta någon annans betydelse.'],
+[69,'KYRKAN','1 Kor 13:1–13','Utan kärlek – ingenting','Hur kan jag göra rätt saker utan rätt hjärta?','Gör nästa sak med kärlek som motiv.'],
+[70,'KYRKAN','Ef 2:19–22','Familj och hus','Vad betyder det att höra hemma?','Hjälp någon känna ”välkommen hem”.'],
+[71,'KYRKAN','Ef 4:1–16','Alla bygger','Vad händer när varje del gör sitt?','Hjälp någon annan växa.'],
+[72,'KYRKAN','Fil 2:1–11','Samma sinne som Jesus','Var behöver jag släppa prestige?','Sätt någon annan före dig själv.'],
+[73,'KYRKAN','Kol 3:12–17','Livet tillsammans','Vilken egenskap behöver jag klä mig i idag?','Välj en: tålamod, mildhet, förlåtelse, kärlek.'],
+[74,'KYRKAN','Heb 10:19–25','Uppmuntra varandra','Vem behöver bli uppmuntrad idag?','Skicka ett uppmuntrande meddelande.'],
+[75,'KYRKAN','Joh 17:20–26','Ett','Vad bad Jesus om för sin kyrka?','Be för enhet.'],
+[76,'MISSION','Matt 9:35–38','Skörden','Vad såg Jesus när han såg människorna?','Be om arbetare och var villig att vara en.'],
+[77,'MISSION','Matt 28:16–20','Uppdraget','Vad är kärnan i Jesu uppdrag?','Ta ett lärjungaskapssteg med någon.'],
+[78,'MISSION','Luk 10:1–9','Jesus sänder','Vad tar lärjungarna med sig – och inte?','Gå enkelt och beroende av Gud.'],
+[79,'MISSION','Luk 15:1–10','Den som saknas','Vem saknas runt bordet?','Be för en person vid namn.'],
+[80,'MISSION','Luk 15:11–32','Faderns hjärta','Hur reagerar Fadern när den förlorade kommer hem?','Be om Faderns hjärta för människor.'],
+[81,'MISSION','REFLEKTION','Reflektionsdag','Vem lägger Gud särskilt på mitt hjärta?','Skriv tre namn.'],
+[82,'MISSION','Joh 4:27–42','Lyft blicken','Var finns skörden jag inte ser?','Se din vardag som missionsfält.'],
+[83,'MISSION','Apg 1:6–8','Jerusalem till jordens ändar','Vilka är mina närmaste och mina långt borta?','Be för båda.'],
+[84,'MISSION','Apg 8:26–40','En människa','Hur mycket kan Gud göra genom ett enda möte?','Var närvarande för en person.'],
+[85,'MISSION','Apg 16:6–15','Gud öppnar dörrar','Hur leder Gud även genom stängda dörrar?','Släpp en stängd dörr och leta efter nästa.'],
+[86,'MISSION','Apg 17:16–34','Evangeliet i kulturen','Hur möter Paulus människor där de är?','Öva att förklara Jesus enkelt.'],
+[87,'MISSION','Rom 10:9–15','Hur ska de höra?','Vem behöver någon som berättar?','Dela din tro naturligt när tillfälle kommer.'],
+[88,'MISSION','2 Kor 5:14–21','Ambassadörer','Vad betyder det att representera Jesus?','Bär Jesu ton i ett möte idag.'],
+[89,'MISSION','1 Petr 3:13–16','Var redo','Hur kan jag svara med mildhet och respekt?','Formulera din tro på 30 sekunder.'],
+[90,'MISSION','Jes 6:1–8','Här är jag. Sänd mig.','Vad blir min respons efter läsplanen?','Be: ”Här är jag. Sänd mig.”']
+];
+const tips={LÄS:'Läs bara dagens korta stycke. Högt om det hjälper fokus.',LYSSNA:'Öppna ljudbibeln och lyssna medan du går, kör eller plockar hemma.',KLADDA:'Markera ord, ringa in, dra pilar och skriv frågetecken. Det behöver inte bli snyggt.',PRATA:'Säg högt vad du ser i texten eller spela in ett 60-sekunders röstmemo.',BE:'Gör textens ord till din egen bön. En mening i taget räcker.',GÖR:'Hoppa snabbt till dagens praktiska steg och lev texten innan du analyserar den mer.'};
+let current=Number(localStorage.getItem('b90-current')||1);
+let complete=JSON.parse(localStorage.getItem('b90-complete')||'[]');
+let threeMode=localStorage.getItem('b90-three')==='1';
+let theme=localStorage.getItem('b90-theme')||((window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark');
+function partName(p){return p==='JESUS'?'DEL 1 · JESUS':p==='HELIGE ANDE'?'DEL 2 · HELIGE ANDE':p==='LÄRJUNGASKAP'?'DEL 3 · LÄRJUNGASKAP':p==='LEDARSKAP'?'DEL 4 · LEDARSKAP':p==='KYRKAN'?'DEL 5 · KYRKAN & GEMENSKAPEN':'DEL 6 · MISSION'}
+function applyTheme(){document.documentElement.setAttribute('data-theme',theme);themeBtn.textContent=theme==='dark'?'☀️':'🌙';themeMeta.content=theme==='dark'?'#0b0d12':'#f5f3ed'}
+function calcMomentum(){let score=0;for(let i=current-1;i>=1;i--){if(complete.includes(i)){score++;if(score===7)break}else if(score>0)break}if(score===0){const sorted=[...complete].sort((a,b)=>b-a);for(const d of sorted){if(d<current){score=1;break}}}return score}
+function render(){const d=days[current-1];partLabel.textContent=partName(d[1]);dayTitle.textContent=`Dag ${d[0]} — ${d[3]}`;reading.textContent=d[2];themeEl.textContent=d[3];question.textContent=d[4];action.textContent=d[5];microTitle.textContent=d[3];microRead.textContent=d[2]==='REFLEKTION'?'Ingen ny text idag. Återvänd till veckan.':`Läs ${d[2]} – långsamt, bara en gång.`;microQuestion.textContent=d[4];microAction.textContent=d[5];
+let notes=JSON.parse(localStorage.getItem('b90-notes-'+current)||'{}');['saw','heard','next'].forEach(k=>document.getElementById(k).value=notes[k]||'');
+const n=complete.length,p=Math.round(n/90*100);doneCount.textContent=n;percent.textContent=p+'%';progressBar.style.width=p+'%';momentum.textContent=calcMomentum();doneBtn.textContent=complete.includes(current)?'✓ Klar':'Markera klar';doneBtn.className='btn '+(complete.includes(current)?'done':'primary');localStorage.setItem('b90-current',current);renderDays();
+const refl=d[2]==='REFLEKTION';reflectionHeading.textContent=refl?'Veckoreflektion':'Min reflektion';reflectionBox.classList.toggle('reflectionCard',refl);heroText.textContent=refl?'Ingen ny prestation idag. Se tillbaka, lyssna och lägg märke till vad Gud redan gjort.':'Målet är inte perfekta dagar. Målet är att känna Jesus bättre.';document.body.classList.toggle('threeMode',threeMode);microCard.classList.toggle('show',threeMode);threeBtn.textContent=threeMode?'↩️ Visa hela dagen':'3 minuter';}
+function renderDays(){dayList.innerHTML='';days.forEach(d=>{const b=document.createElement('button');b.className='day'+(d[0]===current?' current':'')+(complete.includes(d[0])?' complete':'')+(d[2]==='REFLEKTION'?' reflection':'');b.textContent=d[0];b.setAttribute('aria-label',`Dag ${d[0]} ${d[3]}`);b.onclick=()=>{current=d[0];render();scrollTo({top:0,behavior:'smooth'})};dayList.appendChild(b)})}
+function save(){localStorage.setItem('b90-notes-'+current,JSON.stringify({saw:saw.value,heard:heard.value,next:next.value}));}
+saveBtn.onclick=()=>{save();saveBtn.textContent='Sparat ✓';setTimeout(()=>saveBtn.textContent='Spara',900)};
+doneBtn.onclick=()=>{save();if(complete.includes(current))complete=complete.filter(x=>x!==current);else complete.push(current);localStorage.setItem('b90-complete',JSON.stringify(complete));render()};
+prevBtn.onclick=()=>{current=Math.max(1,current-1);render()};nextBtn.onclick=()=>{current=Math.min(90,current+1);render()};todayBtn.onclick=()=>{const first=days.find(d=>!complete.includes(d[0]));current=first?first[0]:90;render();scrollTo({top:0,behavior:'smooth'})};
+document.querySelectorAll('.mode').forEach(b=>b.onclick=()=>{document.querySelectorAll('.mode').forEach(x=>x.classList.remove('active'));b.classList.add('active');modeTip.textContent=tips[b.dataset.mode];if(b.dataset.mode==='LYSSNA')audioBtn.focus()});
+threeBtn.onclick=()=>{threeMode=!threeMode;localStorage.setItem('b90-three',threeMode?'1':'0');render();if(threeMode)microCard.scrollIntoView({behavior:'smooth',block:'start'})};
+themeBtn.onclick=()=>{theme=theme==='dark'?'light':'dark';localStorage.setItem('b90-theme',theme);applyTheme()};
+audioBtn.onclick=()=>window.open('https://www.bible.com/sv/audio-bible-app-versions/160-sfb98-svenska-folkbibeln','_blank','noopener');
+const themeEl=document.getElementById('theme');applyTheme();render();
+if('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script>
+<section class="section hideIn3" style="max-width:760px;margin:22px auto 40px;padding:0 16px"><div class="card"><small style="opacity:.65">VILL DU GÅ DJUPARE?</small><h2>Fördjupa dagens ord</h2><p style="opacity:.75">När du vill ha mer – utan att göra dagens andakt tyngre.</p><p><a href="https://www.karnbibeln.se/" target="_blank" rel="noopener">🔎 Kärnbibeln – ord, grundtext och förklaringar</a></p><p><a href="https://bibleproject.com/explore/" target="_blank" rel="noopener">▶ BibleProject – engelska videor och resurser</a></p></div></section></body></html>

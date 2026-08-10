@@ -1,0 +1,9 @@
+{
+  "name": "ÖPPNA – enkel bibelläsning",
+  "short_name": "ÖPPNA",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4f1e8",
+  "theme_color": "#5f8f78",
+  "description": "En enkel, kreativ bibelläsning som kan växa med fler planer och dagar."
+}
